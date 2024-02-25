@@ -1,0 +1,14 @@
+minikube start
+minikube addons enable ingress
+minikube dashboard
+kubectl create ns auth
+kubectl config set-context --current --namespace=auth
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\catalog-service"
+
+docker build -t catalog-service .
+docker tag catalog-service andrey1andrey/catalog-service
+docker push andrey1andrey/catalog-service
+
+helm install catalog-service chart/ --values chart/catalog-values.yaml
+helm delete catalog-service
+kubectl apply -f catalog-ingress.yaml

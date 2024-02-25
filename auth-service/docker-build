@@ -1,0 +1,15 @@
+minikube start
+minikube addons enable ingress
+minikube dashboard
+kubectl create ns auth
+kubectl config set-context --current --namespace=auth
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\auth-service"
+
+docker build -t otus-auth .
+docker tag otus-auth andrey1andrey/otus-auth
+docker push andrey1andrey/otus-auth
+
+helm install auth chart/ --values chart/auth-values.yaml
+helm delete auth
+
+kubectl apply -f auth-ingress.yaml

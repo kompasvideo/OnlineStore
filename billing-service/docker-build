@@ -1,0 +1,14 @@
+minikube start
+minikube addons enable ingress
+minikube dashboard
+kubectl create ns auth
+kubectl config set-context --current --namespace=auth
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\billing-service"
+
+docker build -t billing-service2 .
+docker tag billing-service2 andrey1andrey/billing-service2
+docker push andrey1andrey/billing-service2
+
+helm install billing-service chart/ --values chart/billing-values.yaml
+helm delete billing-service
+kubectl apply -f billing-ingress.yaml
