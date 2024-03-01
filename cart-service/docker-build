@@ -3,7 +3,7 @@ minikube addons enable ingress
 minikube dashboard
 kubectl create ns auth
 kubectl config set-context --current --namespace=auth
-cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\cart-service"
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafkaAddPrometheus\cart-service"
 
 docker build -t cart-service .
 docker tag cart-service andrey1andrey/cart-service

@@ -27,26 +27,24 @@ logging:
         transaction: INFO
         transaction.interceptor: TRACE
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+  endpoint:
+    health:
+      show-details: always
   metrics:
     distribution:
-      percentiles-histogram:
-        "[http.server.requests]": true
       slo:
         http.server.requests: 10ms, 50ms, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 800ms
     export:
       prometheus:
         enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   prometheus:
     metrics:
       export:
         enabled: true
-  endpoint:
-    health:
-      show-details: always
 payment:
   uri: ${PAYMENT_URI}
 notification:

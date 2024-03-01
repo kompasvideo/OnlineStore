@@ -3,7 +3,7 @@ minikube addons enable ingress
 minikube dashboard
 kubectl create ns auth
 kubectl config set-context --current --namespace=auth
-cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\payment-service"
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafkaAddPrometheus\payment-service"
 
 docker build -t payment-service .
 docker tag payment-service andrey1andrey/payment-service

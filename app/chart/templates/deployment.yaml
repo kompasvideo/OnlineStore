@@ -3,6 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.app.name }}
+  labels:
+    app: {{ .Values.deployment.app.name }}
 spec:
   replicas: {{ .Values.deployment.app.replicas }}
   selector:
@@ -111,25 +113,4 @@ spec:
         storageClassName: standard
         resources:
           requests:
-            storage: 0.1Gi
-
-#---
-#apiVersion: monitoring.coreos.com/v1
-#kind: ServiceMonitor
-#metadata:
-#  name: {{ .Values.monitor.app.name }}
-#  labels:
-#    app: {{ .Values.monitor.app.name }}
-#spec:
-#  endpoints:
-#    - port: {{ .Values.service.app.name }}
-#      scrapeTimeout: 30s
-#      path: /actuator/prometheus
-#      honorLabels: true
-#      scheme: http
-#  namespaceSelector:
-#    matchNames:
-#      - default
-#  selector:
-#    matchLabels:
-#      app: {{ .Values.deployment.app.name }}
+            storage: 1Gi

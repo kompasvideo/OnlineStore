@@ -3,7 +3,7 @@ minikube addons enable ingress
 minikube dashboard
 kubectl create ns auth
 kubectl config set-context --current --namespace=auth
-cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\auth-service"
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafkaAddPrometheus\auth-service"
 
 docker build -t otus-auth .
 docker tag otus-auth andrey1andrey/otus-auth

@@ -15,12 +15,5 @@ minikube.exe service metrics-demo
 
 kubectl port-forward service/prometheus-operated  9090
 
-ab -n 500 -c 50 http://localhost:8090/api/a # поменять урл на реальный (выхлоп minikube.exe service metrics-demo)
-
-FOR /L %N IN () DO c:\data\otus\msa\Apache24\bin\ab.exe -n 50 -c 10 http://localhost:8090/api/a # аналогично поменять урл
-
-
----------
-
 kubectl port-forward service/stack-grafana  9000:80
 admin / prom-operator

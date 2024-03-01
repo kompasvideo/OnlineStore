@@ -15,6 +15,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.service.app.name }}
+  labels:
+    app: {{ .Values.deployment.app.name }}
 spec:
   type: {{ .Values.service.app.type }}
   selector:
@@ -24,3 +26,24 @@ spec:
       name: {{ .Values.service.app.name }}
       port: {{ .Values.service.app.port }}
       targetPort: {{ .Values.service.app.port }}
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Values.monitor.app.name }}
+  labels:
+    app: {{ .Values.monitor.app.name }}
+spec:
+  endpoints:
+    - port: {{ .Values.service.app.name }}
+      scrapeTimeout: 30s
+      path: /actuator/prometheus
+      honorLabels: true
+      scheme: http
+  namespaceSelector:
+    matchNames:
+      - auth
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.app.name }}

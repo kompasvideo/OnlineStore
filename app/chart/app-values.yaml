@@ -10,7 +10,7 @@ deployment:
   app:
     name: app
     type: NodePort
-    image: andrey1andrey/otus322-app:latest
+    image: andrey1andrey/otus-app:latest
     port: 9000
     sport: "9000"
     replicas: 1

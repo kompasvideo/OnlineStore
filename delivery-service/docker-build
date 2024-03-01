@@ -3,7 +3,7 @@ minikube addons enable ingress
 minikube dashboard
 kubectl create ns auth
 kubectl config set-context --current --namespace=auth
-cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafka\delivery-service"
+cd "C:\My\Обучение\Otus\MicrosArchit\proekt_job\Проект\ProjectOutKafkaAddPrometheus\delivery-service"
 
 docker build -t delivery-service .
 docker tag delivery-service andrey1andrey/delivery-service
