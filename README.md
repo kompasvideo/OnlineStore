@@ -110,6 +110,13 @@ kubectl port-forward service/stack-grafana  9000:80
 После настройки
 Запускаем тесты с помощью postman и проверяем, что все корректно запустилось.
 в папке postman коллекция
+![](https://github.com/kompasvideo/OnlineStore/blob/main/img/postman.png)
+
 
 Прометей
-![](https://github.com/kompasvideo/OnlineStore/blob/main/prometheus+grafana/prometheus.png)
+![](https://github.com/kompasvideo/OnlineStore/blob/main/img/prometheus.png)
+
+Графана
+![](https://github.com/kompasvideo/OnlineStore/blob/main/img/grafana_1.png)
+![](https://github.com/kompasvideo/OnlineStore/blob/main/img/grafana_2.png)
+![](https://github.com/kompasvideo/OnlineStore/blob/main/img/grafana_3.png)
