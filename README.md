@@ -90,6 +90,11 @@ kubectl apply -f payment-ingress.yaml
 kubectl apply -f warehouse-ingress.yaml
 ```
 
+Переключаемся на default namespase
+```
+kubectl config set-context --current --namespace=default
+```
+
 Прокидываем порт и можем посмотреть прометей 
 на http://127.0.0.1:9090/
 ```
@@ -106,3 +111,5 @@ kubectl port-forward service/stack-grafana  9000:80
 Запускаем тесты с помощью postman и проверяем, что все корректно запустилось.
 в папке postman коллекция
 
+Прометей
+![](https://github.com/kompasvideo/OnlineStore/blob/main/prometheus+grafana/prometheus.png)
